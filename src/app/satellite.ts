@@ -1,5 +1,6 @@
 import { SourceListMap } from 'source-list-map';
 
+
 export class Satellite {
     name: string;
     orbitType: string;
@@ -13,13 +14,12 @@ export class Satellite {
    this.launchDate = launchDate;
    this.orbitType = orbitType;
    this.operational = operational;
-
-    }
+    };
     shouldShowWarning(){
-        if(this.type === 'Space Debris'){
+        if(this.type.toLowerCase() === "space debris"){
             return true;
         }else{
             return false;
         }
     }
-}
+};

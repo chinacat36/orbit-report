@@ -21,10 +21,11 @@ export class AppComponent {
          response.json().then(function(data) {
    
             let fetchedSatellites = data.satellites;
+            let satellite={};
             for(let i=0; i<fetchedSatellites.length; i++){
-            this.sourceList.push(fetchedSatellites[i])
-            }
-            this.sourceList.push(new Satellite('KerryGold', 'Space Station', '2019-01-06', 'HIGH', true))
+            satellite = new Satellite(fetchedSatellites[i].name, fetchedSatellites[i].type, fetchedSatellites[i].launchDate, fetchedSatellites[i].orbitType, fetchedSatellites[i].operational)
+            this.sourceList.push(satellite)
+           }
             this.displayList = this.sourceList.slice(0);
           }.bind(this));
         }.bind(this));
@@ -39,7 +40,6 @@ search(searchTerm: string): void {
      }
   }
   this.displayList = matchingSatellites;
-  
 }
 }
  
